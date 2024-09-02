@@ -70,6 +70,16 @@ body {
   border-bottom: 30px solid white;
   display: grid;
   grid-template-rows: .3fr 0.3fr 0.1fr 2fr 0.3fr 0px;
+    .description {
+      margin-bottom: 4px;
+      display: -webkit-box;
+      display: -moz-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 6;
+      line-clamp: 6;
+      -webkit-box-orient: vertical;
+    }
     .pages-number {
       align-self: center;
       padding-bottom: 2px;

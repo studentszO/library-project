@@ -23,7 +23,7 @@ function addBookToLibrary(title, author, pages, read, description) {
 }
 
 // BOOKS EXAMPLES ON PAGE LOAD
-addBookToLibrary("There Are Rivers in the Sky: A novel", "J.D MORGAN", 455, "yes", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit repudiandae.");
+addBookToLibrary("There Are Rivers in the Sky: A novel", "J.D MORGAN", 455, "yes", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit repudiandae. Lorem Ipsum del repundia alkapone susca lia.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit repudiandae. Lorem Ipsum del repundia alkapone susca lia.");
 addBookToLibrary("book2", "author2", 11, "yes");
 addBookToLibrary("book3", "author3", 9, "no", "WHAT A NICE BOOK EXAMPLE!");
 
@@ -56,6 +56,7 @@ function updateLibrary() {
         const div = document.createElement("div");
 
         card.className = "card";
+        description.className = "description";
         author.className = "author";
         pagesNumber.className = "pages-number";
 
