@@ -7,20 +7,20 @@ function Books(title, author, pages, read, description) {
     this.info = function() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
     }
-}
+};
 
 Books.prototype.changeReadStatus = function () {
     if (this.read === "yes")
-        return this.read = "no"
-    else return this.read = "yes"
-}
+        return this.read = "no";
+    else return this.read = "yes";
+};
 
 const myLibrary = [];
 
 function addBookToLibrary(title, author, pages, read, description) {
     const bookTitle = new Books(title, author, pages, read, description);
     myLibrary.push(bookTitle);
-}
+};
 
 // BOOKS EXAMPLES ON PAGE LOAD
 addBookToLibrary("There Are Rivers in the Sky: A novel", "J.D MORGAN", 455, "yes", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit repudiandae. Lorem Ipsum del repundia alkapone susca lia.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit repudiandae. Lorem Ipsum del repundia alkapone susca lia.");
@@ -89,15 +89,15 @@ function updateLibrary() {
             card.remove();
             myLibrary.splice(card.attributes["data-book-number"].value, 1);
             updateLibrary();
-        })
+        });
         read.lastChild.addEventListener("click", () => {
             console.log(card.attributes["data-book-number"].value);
             myLibrary[card.attributes["data-book-number"].value].changeReadStatus();
             readText();
-        })
+        });
 
         bookId++;
-    })
+    });
 };
 
 // DIALOG BOX - ADD A BOOK IN THE FRAME
@@ -108,7 +108,7 @@ const descriptionInput = addBook.querySelector("textarea");
 const pagesInput = addBook.querySelector("input[name='pages']");
 const readInput = addBook.querySelector("input[name='read']");
 const addInputs = addBook.querySelector("#confirm-btn");
-const cancelFormButton = addBook.querySelector("button[value='cancel']")
+const cancelFormButton = addBook.querySelector("button[value='cancel']");
 const addBookButton = document.querySelector("#add-book");
 
 addBookButton.addEventListener("click", () => {
