@@ -46,13 +46,14 @@ function updateLibrary() {
         const removeIconTitle = "Remove this book from the library";
         const editIconTitle = "Edit read status";
 
-        const card = document.createElement("div")
+        const card = document.createElement("div");
+        const hr = document.createElement("hr");
         const title = document.createElement("h3");
         const author = document.createElement("p");
         const description = document.createElement("p");
         const pagesNumber = document.createElement("p");
         const read = document.createElement("footer");
-        const div = document.createElement("div")
+        const div = document.createElement("div");
 
         card.className = "card";
         author.className = "author";
@@ -69,11 +70,11 @@ function updateLibrary() {
         // Useful for editing the read status
         function readText() {
             if (element.read === "yes"){
-                div.textContent = "READ ✔️";
+                div.textContent = "read ✔️";
                 div.style.color = "green";
             }
             else {
-                div.textContent = "UNREAD ❌"
+                div.textContent = "unread ❌"
                 div.style.color = "red";
         }};
         // And run it!
@@ -81,7 +82,7 @@ function updateLibrary() {
 
         container.appendChild(card);
         read.append(renderIcon(removeIconAttribute, removeIconTitle), div, renderIcon(editStatusIcon, editIconTitle));
-        card.append(title, author, description, pagesNumber, read);
+        card.append(title, author, hr, description, pagesNumber, read);
 
         read.firstChild.addEventListener("click", () => {
             card.remove();
