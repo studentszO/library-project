@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>Speaker Submission</title>
+    <link rel='stylesheet' href='styles.css'/>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="rr"></div>
+    <div class="book-display-container">
+      <h2>List of my books</h2>
+      <div class="cards-container">
+        <div class="card">
+          <h3>There Are Rivers in
+            the Sky: A novel eamaisona</h3>
+          <p class="author">by J.D.MORGAN</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit repudiandae.</p>
+          <p class="pages-number">455 pages</p>
+          <footer><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Remove this book from the library</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>READ<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Edit read status</title><path d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" /></svg></footer>
+        </div>
+      </div>
+    </div>
+    <div id="add-book">Add a book</div>
+    <dialog>
+      <p>Let's add a book !</p>
+      <form>
+        <div>
+          <label for="title">What's the book's title ?</label>
+          <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+          <label for="author">Who's the author ?</label>
+          <input type="text" id="author" name="author" required>
+        </div>
+        <div>
+          <label for="description">Add a description (optionnal)</label>
+          <textarea id="description" name="description" maxlength="100"></textarea>
+        </div>
+        <div>
+          <label for="pages">How many pages does the book contains ?</label>
+          <input type="number" name="pages" id="pages">
+        </div>
+        <div>
+          <legend>Have you read it ?</legend>
+          <label for="read">Yes!</label>
+          <input type="radio" name="read" id="read" value="yes" checked>
+          <label for="notread">Not yet!</label>
+          <input type="radio" name="read" id="notread" value="no">
+        </div>
+        <button value="default" id="confirm-btn">ADD</button><button value="cancel" formmethod="dialog">CANCEL</button>
+      </form>
+    </dialog>
+  </body>
+</html>

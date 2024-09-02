@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  background-color: #1a1a1a;
+  --book-display-height: 500px;
+  --book-display-width: 1500px;
+  --clr-bg-seconday:rgb(29, 15, 23);
+  --border-main: #d3d3d3 3px solid;
+}
+ 
+/* html {
+  width: 100vw;
+  height: 100vh;
+} */
+
+body {
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    margin: calc(50vh - (var(--book-display-height) / 2)) calc(50vw - (var(--book-display-width) / 2));
+  }
+
+.book-display-container {
+  background-color: #242424;
+  color: #d3d3d3;
+  border: var(--border-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: var(--book-display-height);
+  width: var(--book-display-width);
+    h2 {
+      text-transform: uppercase;
+      align-self: center;
+      font-weight: 900;
+      font-size: 3rem;
+      color: #131313;
+      letter-spacing: -.01em;
+      text-shadow: 
+        -1px -1px 1px #111, 
+        2px 2px 1px #363636;
+    }
+}
+
+.cards-container {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  /* align-items: center; */
+  /* height: 100%; */
+}
+
+.card {
+  background-color: var(--clr-bg-seconday);
+  padding: 10px;
+  border-radius: 2%;
+  border: 2px white solid;
+  width: 200px;
+  height: 270px;
+  border-bottom: 30px solid white;
+  display: grid;
+  grid-template-rows: .3fr 0.3fr 2fr 0.3fr 0px;
+    .pages-number {
+      justify-self: end;
+      font-size: .8rem;
+      padding-right: 5px;
+      color: rgb(155, 155, 155);
+    }
+    h3 {
+      color: white;
+    }
+    .author {
+      font-size: 0.7rem;
+      color: #afafaf;
+    }
+    footer {
+      margin: 15px auto;
+      color: green;
+      font-size: .9rem;
+      font-weight: 900;
+      letter-spacing: -.05rem;
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: 1fr 2fr 1fr;
+      /* gap: auto; */
+      place-items: center;
+      width: 100%;
+        svg {
+          background-color: var(--clr-bg-seconday);
+          height: 120%;
+          border-radius: 3px;
+          padding: 3px;
+          fill: aliceblue;
+          &:first-of-type {
+            &:hover {
+              fill: red;
+            }
+            justify-self: start;
+          }
+          &:last-of-type {
+            &:hover {
+              fill: greenyellow;
+            }
+            justify-self: end;
+          }
+        }
+  }
+}
+
+
+
+#add-book {
+  background-color: var(--clr-bg-seconday);
+  width: fit-content;
+  margin-top: 5px;
+  padding: 10px 20px;
+  color: rgb(255, 255, 255);
+  border: var(--border-main);
+  border-radius: 3px;
+  font-weight: 900;
+  &:hover {
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.3) 0px 0px 36px -18px inset;
+  }
+}
