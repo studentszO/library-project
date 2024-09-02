@@ -138,7 +138,7 @@ body {
   }
 }
 
-#add-book {
+#add-book, dialog button {
   background-color: var(--clr-bg-secondary);
   width: fit-content;
   margin-top: 5px;
@@ -150,5 +150,62 @@ body {
   font-weight: 900;
     &:hover {
       box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.3) 0px 0px 36px -18px inset;
+    }
+}
+
+dialog {
+  justify-self: center;
+  align-self: center;
+  background-color: #242424;
+  box-shadow: rgb(0 0 0 / 63%) 0px 0px 13px 0px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  color: #d3d3d3;
+  border: var(--border-main);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+    hr {
+      border: 0;
+      margin-bottom: 10px;
+      height: 1px;
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(134, 134, 134, 0.75));
+    }
+    form {
+      padding: 10px;
+      input, textarea {
+        background-color: #111;
+        border: #353535 1px solid;
+        border-radius: 4px;
+        padding: 5px;
+        font-weight: 100;
+        color: white;
+        outline: none;
+        &:hover, &:focus {
+          background-color: #363636;
+        }
+        &:focus {
+          border-color: #6e6e6e;
+        }
+      }
+      gap: 10px;
+      display: flex;
+      flex-flow: column nowrap;
+      > div {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2px;
+        &:last-of-type {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+      > span {
+        display: flex;
+        justify-content: space-between;
+      }
     }
 }

@@ -23,33 +23,40 @@
     </div>
     <div id="add-book">Add a book</div>
     <dialog>
-      <p>Let's add a book !</p>
-      <form>
-        <div>
-          <label for="title">What's the book's title ?</label>
-          <input type="text" id="title" name="title" required>
-        </div>
-        <div>
-          <label for="author">Who's the author ?</label>
-          <input type="text" id="author" name="author" required>
-        </div>
-        <div>
-          <label for="description">Add a description (optionnal)</label>
-          <textarea id="description" name="description" maxlength="100"></textarea>
-        </div>
-        <div>
-          <label for="pages">How many pages does the book contains ?</label>
-          <input type="number" name="pages" id="pages">
-        </div>
-        <div>
-          <legend>Have you read it ?</legend>
-          <label for="read">Yes!</label>
-          <input type="radio" name="read" id="read" value="yes" checked>
-          <label for="notread">Not yet!</label>
-          <input type="radio" name="read" id="notread" value="no">
-        </div>
-        <button value="default" id="confirm-btn">ADD</button><button value="cancel" formmethod="dialog">CANCEL</button>
-      </form>
+      <div class="dialog-container">
+        <h2>Let's add a book !</h2>
+        <hr>
+        <form>
+          <div>
+            <label for="title">What's the book's title ?</label>
+            <input type="text" id="title" name="title" required>
+          </div>
+          <div>
+            <label for="author">Who's the author ?</label>
+            <input type="text" id="author" name="author" required>
+          </div>
+          <div>
+            <label for="description">Add a description (optionnal)</label>
+            <textarea id="description" name="description" maxlength="100"></textarea>
+          </div>
+          <div>
+            <label for="pages">How many pages does the book contains ?</label>
+            <input type="number" name="pages" id="pages">
+          </div>
+          <div>
+            <legend>Have you read it ?</legend>
+            <div>
+              <input type="radio" name="read" id="read" value="yes" checked>
+              <label for="read">Yes!</label>
+            </div>
+            <div>
+              <input type="radio" name="read" id="notread" value="no">
+              <label for="notread">Not yet!</label>
+            </div>
+          </div>
+          <span><button value="default" id="confirm-btn">ADD</button><button value="cancel" formmethod="dialog">CANCEL</button></span>
+        </form>
+      </div>
     </dialog>
   </body>
 </html>
