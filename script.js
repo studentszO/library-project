@@ -1,18 +1,19 @@
-function Books(title, author, pages, read, description) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.description = description;
-    this.info = function() {
+class Books {
+    constructor(title, author, pages, read, description) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.description = description;
+    }
+
+    info() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
     }
-}
 
-Books.prototype.changeReadStatus = function () {
-    if (this.read === "yes")
-        return this.read = "no"
-    else return this.read = "yes"
+    setReadStatus() {
+        this.read = this.read === "yes" ? "no" : "yes";
+    }
 }
 
 const myLibrary = [];
@@ -70,7 +71,7 @@ function updateLibrary() {
         // Change the text & color of the card footer's text
         // Useful for editing the read status
         function readText() {
-            if (element.read === "yes"){
+            if (element.read === "yes") {
                 div.textContent = "read ✔️";
                 div.style.color = "green";
             }
@@ -92,7 +93,7 @@ function updateLibrary() {
         })
         read.lastChild.addEventListener("click", () => {
             console.log(card.attributes["data-book-number"].value);
-            myLibrary[card.attributes["data-book-number"].value].changeReadStatus();
+            myLibrary[card.attributes["data-book-number"].value].setReadStatus();
             readText();
         })
 
@@ -102,11 +103,6 @@ function updateLibrary() {
 
 // DIALOG BOX - ADD A BOOK IN THE FRAME
 const addBook = document.querySelector("dialog");
-const titleInput = addBook.querySelector("input[name='title']");
-const authorInput= addBook.querySelector("input[name='author']");
-const descriptionInput = addBook.querySelector("textarea");
-const pagesInput = addBook.querySelector("input[name='pages']");
-const readInput = addBook.querySelector("input[name='read']");
 const addInputs = addBook.querySelector("#confirm-btn");
 const cancelFormButton = addBook.querySelector("button[value='cancel']")
 const addBookButton = document.querySelector("#add-book");
@@ -119,10 +115,32 @@ cancelFormButton.addEventListener("click", () => {
     addBook.close();
 });
 
+function checkInputValidity() {
+    const titleInput = addBook.querySelector("input[name='title']");
+    const authorInput= addBook.querySelector("input[name='author']");
+    const descriptionInput = addBook.querySelector("textarea");
+    const pagesInput = addBook.querySelector("input[name='pages']");
+    const readInput = addBook.querySelectorAll("input[name='read']");
+    const readOrNotInput = readInput[0].checked ? "yes" : "no";
+
+    titleInput.checkValidity();
+    authorInput.checkValidity();
+    descriptionInput.checkValidity();
+    pagesInput.checkValidity();
+
+    if (!document.querySelector(".dialog-container > form").checkValidity()) return false;
+
+    return [ titleInput.value, authorInput.value, pagesInput.value, readOrNotInput, descriptionInput.value ];
+}
+
 addInputs.addEventListener("click", (event) => {
-    addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.value, descriptionInput.value)
-    updateLibrary();
+    const inputsArrayValid = checkInputValidity();
+    console.log(inputsArrayValid)
+    if (inputsArrayValid === false) return;
     event.preventDefault();
+    
+    addBookToLibrary(...inputsArrayValid)
+    updateLibrary();
     addBook.querySelector("form").reset();
     addBook.close();
 });
